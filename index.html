@@ -1,1 +1,119 @@
-Hello World!
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>GMSR</title>
+</head>
+<body style="font-family: Oxygen,Helvetica Neue,Arial,sans-serif;">
+<div align="center">
+  <div>
+    <h1>3D Interest Point Detection Based on Geometric Measures and Sparse Refinement (GMSR)</h1>
+    <div>
+      <video width="60%" height="auto" controls>
+        <source src="chair_4.mp4" type="video/mp4">
+        Your browser does not support the video tag. </video>
+      <p>(3D interest points of chair 3D mesh model detected by the 7 algorithms)</p>
+    </div>
+    <div style="text-align:left; margin-left:5%; margin-right:5%;">
+      <h3>Abstract: </h3>
+      Three dimensional (3D) interest point detection plays a fundamental role in computer vision. In this paper, we introduce a new method for detecting 3D interest points of 3D mesh models based on geometric measures and sparse refinement (GMSR). The key idea of our approach is to calculate the 3D
+      saliency measure using two novel geometric measures, which are defined in multi-scale space to distinguish 3D interest points from
+      edges and flat areas effectively. Those points with local maxima of
+      3D saliency measure are selected as the candidates of 3D interest
+      points. Finally, we utilize an l0 norm based optimization method
+      to refine the candidates of 3D interest points by constraining the
+      number of 3D interest points. Numerical experiments show that
+      the proposed GMSR based 3D interest point detector outperforms
+      current 6 state-of-the-art methods for different kinds of 3D mesh
+      models.</div>
+    <div style="text-align:left; margin-left:5%; margin-right:5%;">
+      <h3>The method:</h3>
+      Please read the <a href="https://arxiv.org/abs/1604.08806" target="_blank">GMSR_paper</a> for detail. Supplemental material is also available <a target="_blank" href="supplemental material.zip">here</a>.
+      <div style="text-align:center">
+      <img width="70%" height="auto" src="outline.png" /> <br />
+      (The outline of the proposed GMSR based 3D interest point detection algorithm.)
+      </div>
+      <h3>Source code:</h3>
+      Click <a href="code.zip" target="_blank">here</a> to download the Matlab source code.
+    </div>
+    <div style="text-align:left; margin-left:5%; margin-right:5%;">
+      <h3>Results:</h3>
+      <p> Evaluation Datasets: <a href="http://www.itl.nist.gov/iad/vug/sharp/benchmark/3DInterestPoint/" target="_blank">http://www.itl.nist.gov/iad/vug/sharp/benchmark/3DInterestPoint/</a> [1]. <br />
+        <br />
+        Evaluation Metric: Intersection Over Union (IOU) [2]. <br />
+        <br />
+        Compared 3D interest point detection algorithm: 3D Harris [3], HKS [4], 3D-SIFT [5], Salient Points [6], Mesh Saliency [7] and Scale Dependent Corners [8]. </p>
+      <br />
+      <div style="text-align:center; margin:auto;"> <img width="80%" height="auto" src="results.png" />
+        <p>Row 1 and row 2 show the IOU curves for Dataset A and Dataset B respectively at various n/sigma pairs.</p>
+        <br />
+        <br />
+        <table style="width:80%" align="center">
+          <caption>
+          Average IOU on Dataset A and Dataset B
+          </caption>
+          <tr style="border:1px solid #000; border-collapse: collapse;">
+            <td style="border:1px solid #000; border-collapse: collapse; width:10%"></td>
+            <td style="border:1px solid #000; border-collapse: collapse; width:10%">Mesh saliency</td>
+            <td style="border:1px solid #000; border-collapse: collapse; width:10%">SD-corners</td>
+            <td style="border:1px solid #000; border-collapse: collapse; width:10%">3D-Harris</td>
+            <td style="border:1px solid #000; border-collapse: collapse; width:10%">Salient points</td>
+            <td style="border:1px solid #000; border-collapse: collapse; width:10%">HKS</td>
+            <td style="border:1px solid #000; border-collapse: collapse; width:10%">3D-SIFT</td>
+            <td style="border:1px solid #000; border-collapse: collapse; width:10%">GMSR</td>
+          </tr>
+          <tr style="border:1px solid #000; border-collapse: collapse;">
+            <td style="border:1px solid #000; border-collapse: collapse; width:10%">Dataset A</td>
+            <td style="border:1px solid #000; border-collapse: collapse; width:10%">0.0783</td>
+            <td style="border:1px solid #000; border-collapse: collapse; width:10%">0.0758</td>
+            <td style="border:1px solid #000; border-collapse: collapse; width:10%">0.1044</td>
+            <td style="border:1px solid #000; border-collapse: collapse; width:10%">0.1245</td>
+            <td style="border:1px solid #000; border-collapse: collapse; width:10%">0.2470</td>
+            <td style="border:1px solid #000; border-collapse: collapse; width:10%">0.1085</td>
+            <td style="border:1px solid #000; border-collapse: collapse; width:10%"><strong>0.2658</strong></td>
+          </tr>
+          <tr style="border:1px solid #000; border-collapse: collapse;">
+            <td style="border:1px solid #000; border-collapse: collapse; width:10%">Dataset B</td>
+            <td style="border:1px solid #000; border-collapse: collapse; width:10%">0.0738</td>
+            <td style="border:1px solid #000; border-collapse: collapse; width:10%">0.0715</td>
+            <td style="border:1px solid #000; border-collapse: collapse; width:10%">0.1011</td>
+            <td style="border:1px solid #000; border-collapse: collapse; width:10%">0.1244</td>
+            <td style="border:1px solid #000; border-collapse: collapse; width:10%">0.2106</td>
+            <td style="border:1px solid #000; border-collapse: collapse; width:10%">0.0956</td>
+            <td style="border:1px solid #000; border-collapse: collapse; width:10%"><strong>0.2224</strong></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div style="text-align:left; margin-left:5%; margin-right:5%;">
+      <h3>Reference:</h3>
+      <ol>
+        <li>H. Dutagaci, C. P. Cheung, and A. Godil, “Evaluation of 3d interest point
+          detection techniques via human-generated ground truth,” The Visual
+          Computer, vol. 28, no. 9, pp. 901–917, 2012. </li>
+        <li>L. Teran and P. Mordohai, “3d interest point detection via discriminative
+          learning,” in European Conference on Computer Vision, Zurich,
+          Switzerland, Sept 2014.</li>
+        <li>I. Sipiran and B. Bustos, “Harris 3d: a robust extension of the harris operator
+          for interest point detection on 3d meshes,” The Visual Computer,
+          vol. 27, no. 11, pp. 963–976, 2011.</li>
+        <li>J. Sun, M. Ovsjanikov, and L. Guibas, “A concise and provably informative
+          multi-scale signature based on heat diffusion,” Computer Graphics
+          Forum, vol. 28, no. 5, pp. 1383–1392, 2009.</li>
+        <li>A. Godil and A. I. Wagan, “Salient local 3d features for 3d shape
+          retrieval,” Proceedings of SPIE, vol. 7864, pp. 78 640S–78 640S–8,
+          2011.</li>
+        <li>U. Castellani, M. Cristani, S. Fantoni, and V. Murino, “Sparse points
+          matching by combining 3d mesh saliency with statistical descriptors,”
+          Computer Graphics Forum, vol. 27, no. 2, pp. 643–652, 2008.</li>
+        <li>C. H. Lee, A. Varshney, and D. W. Jacobs, “Mesh saliency,” ACM
+          Transactions on Graphics, vol. 24, no. 3, pp. 659–666, 2005.</li>
+        <li>J. Novatnack and K. Nishino, “Scale-dependent 3d geometric features,”
+          in IEEE 11th International Conference on Computer Vision, Rio de
+          Janeiro, Brazil, Oct 2007.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+</body>
+</html>
